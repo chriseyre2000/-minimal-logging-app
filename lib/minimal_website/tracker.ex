@@ -10,6 +10,6 @@ defmodule Tracker do
   end
 
   def increment(url) do
-    Agent.update(__MODULE__, &( &1 |> Map.update(url, 0, fn x -> x + 1 end) ) )
+    Agent.update(__MODULE__, &( &1 |> Map.update(url, 1, fn x -> x + 1 end) ) )
   end
 end
