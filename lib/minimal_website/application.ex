@@ -8,6 +8,7 @@ defmodule MinimalWebsite.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Tracker, %{}},
       {Plug.Cowboy,
       scheme: :http,
       plug: MinimalAppRouter,

@@ -3,10 +3,11 @@ defmodule MinimalAppRouter do
 
   plug :match
   plug :dispatch
-  get "/hello" do
-    send_resp(conn, 200, "This is a test...")
+  get "/tracker" do
+    send_resp(conn, 200, "#{(for {k, v} <- Tracker.value, do: "#{k}:#{v}") |> Enum.join("\n")}")
   end
   match _ do
+    Tracker.increment(conn.request_path)
     send_resp(conn, 404, "Wrong place mate")
   end
 end
