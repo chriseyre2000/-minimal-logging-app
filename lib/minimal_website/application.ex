@@ -10,7 +10,7 @@ defmodule MinimalWebsite.Application do
     children = [
       {Plug.Cowboy,
       scheme: :http,
-      plug: SimpleAppRouter,
+      plug: MinimalAppRouter,
       options: [port: (System.get_env("PORT") || "8080") |> String.to_integer()]
     }    ]
 
